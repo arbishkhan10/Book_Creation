@@ -48,13 +48,12 @@ const config = {
     navbar: {
       title: 'Humanoid Robotics Book',
       logo: {
-        alt: 'Logo',
-        src: 'img/logo.svg',
-        srcDark: 'img/logo.svg', // Add dark mode logo if available
+        alt: 'Robotics Logo',
+        src: 'img/robotics-logo.svg',
+        srcDark: 'img/robotics-logo.svg', // Add dark mode logo if available
       },
       items: [
         { type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Module' },
-        { to: '/blog', label: 'Blog', position: 'left' },
         { href: 'https://github.com/arbishkhan10/My-Book', label: 'GitHub', position: 'right' },
       ],
       style: 'primary', // Use primary color for navbar

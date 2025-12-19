@@ -28,3 +28,21 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
 }
+
+/* Header title (Humanoid Robotic Book / Book) */
+.navbar__title {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+/* Navigation links in navbar */
+.navbar__item {
+  font-size: 1.2rem !important;
+}
+
+/* Navbar logo styling */
+.navbar__logo {
+  height: 2rem;
+  width: 2rem;
+  margin-right: 0.5rem;
+}
