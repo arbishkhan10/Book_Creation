@@ -1,0 +1,692 @@
+/**
+ * Copyright (c) 2017-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/* You can override the default Docusaurus styling with custom CSS here. */
+
+:root {
+  /* Modern primary color palette with WCAG 2.1 AA compliance */
+  --ifm-color-primary: #1a73e8; /* Modern blue */
+  --ifm-color-primary-dark: #1765cc;
+  --ifm-color-primary-darker: #1557b0;
+  --ifm-color-primary-darkest: #124995;
+  --ifm-color-primary-light: #3b8cff;
+  --ifm-color-primary-lighter: #5da3ff;
+  --ifm-color-primary-lightest: #80bdff;
+
+  /* Additional modern color variables */
+  --ifm-color-secondary: #5f6368; /* Subtle gray for secondary text */
+  --ifm-color-accent: #fbbc04; /* Google-like accent yellow */
+  --ifm-color-success: #34a853; /* Success green */
+  --ifm-color-warning: #f9ab00; /* Warning orange */
+  --ifm-color-danger: #ea4335; /* Danger red */
+
+  /* Enhanced background colors */
+  --ifm-color-background: #ffffff;
+  --ifm-color-gray-100: #f8f9fa;
+  --ifm-color-gray-200: #e9ecef;
+  --ifm-color-gray-300: #dee2e6;
+  --ifm-color-gray-400: #ced4da;
+  --ifm-color-gray-500: #adb5bd;
+  --ifm-color-gray-600: #6c757d;
+  --ifm-color-gray-700: #495057;
+  --ifm-color-gray-800: #343a40;
+  --ifm-color-gray-900: #212529;
+
+  /* Typography improvements */
+  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --ifm-line-height-base: 1.6;
+  --ifm-code-font-size: 90%;
+
+  /* Spacing improvements */
+  --ifm-spacing-horizontal: 1.5rem;
+  --ifm-spacing-vertical: 1.5rem;
+
+  /* Responsive breakpoints */
+  --ifm-container-width: 1200px;
+  --ifm-container-width-xl: 1400px;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #8ab4f8; /* Lighter blue for dark mode */
+  --ifm-color-primary-dark: #6da0f0;
+  --ifm-color-primary-darker: #508beb;
+  --ifm-color-primary-darkest: #3473d5;
+  --ifm-color-primary-light: #a9c7fa;
+  --ifm-color-primary-lighter: #c7d9fb;
+  --ifm-color-primary-lightest: #e5ebfd;
+
+  /* Dark mode specific colors */
+  --ifm-color-secondary: #9aa0a6;
+  --ifm-color-accent: #fbbc04;
+  --ifm-color-success: #43c47a;
+  --ifm-color-warning: #f9ab00;
+  --ifm-color-danger: #ea6a5d;
+
+  /* Dark mode backgrounds */
+  --ifm-color-background: #121212;
+  --ifm-color-gray-100: #202124;
+  --ifm-color-gray-200: #2d2f33;
+  --ifm-color-gray-300: #3c4043;
+  --ifm-color-gray-400: #5f6368;
+  --ifm-color-gray-500: #70757a;
+  --ifm-color-gray-600: #9aa0a6;
+  --ifm-color-gray-700: #bdc1c6;
+  --ifm-color-gray-800: #d2d5d8;
+  --ifm-color-gray-900: #e8eaed;
+}
+
+/* Responsive breakpoints for mobile-first approach */
+@media (max-width: 575px) {
+  /* Extra small devices (portrait phones, less than 576px) */
+  :root {
+    --ifm-font-size-base: 0.85rem;
+    --ifm-spacing-horizontal: 1rem;
+    --ifm-spacing-vertical: 1rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  /* Small devices (landscape phones, 576px and up) */
+  :root {
+    --ifm-font-size-base: 0.9rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Medium devices (tablets, 768px and up) */
+  :root {
+    --ifm-font-size-base: 0.95rem;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* Large devices (desktops, 992px and up) */
+  :root {
+    --ifm-font-size-base: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Extra large devices (large desktops, 1200px and up) */
+  :root {
+    --ifm-font-size-base: 1rem;
+  }
+}
+
+/* Mobile-first responsive adjustments for content */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar__items {
+    gap: 0.5rem;
+  }
+
+  .main-wrapper {
+    padding: 1rem 0.5rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .hero__title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .hero__subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .menu {
+    font-size: 0.9rem;
+  }
+
+  .menu__list .menu__list {
+    font-size: 0.85rem;
+  }
+}
+
+/* Accessibility utilities for keyboard navigation and screen readers */
+/* Focus indicators for better keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+[tabindex]:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --ifm-color-emphasis-300: var(--ifm-color-gray-700);
+    --ifm-color-emphasis-600: var(--ifm-color-gray-900);
+  }
+
+  .navbar__link,
+  .menu__link {
+    border-radius: 4px;
+    border: 1px solid transparent;
+  }
+
+  .navbar__link:focus,
+  .menu__link:focus {
+    border-color: var(--ifm-color-emphasis-900);
+  }
+}
+
+/* Reduced motion support for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Screen reader only content utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip to content link for screen reader users */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  padding: 8px;
+  background: var(--ifm-color-primary);
+  color: white;
+  z-index: 10000;
+  border-radius: 0 0 6px 6px;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Better focus management for interactive elements */
+details summary:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Improved contrast for form elements */
+.form-control:focus {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ifm-color-primary) 20%, transparent);
+}
+
+/* Enhanced typography hierarchy with improved font sizes and weights */
+/* Headings with better visual hierarchy */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.45;
+  margin-bottom: 0.5rem;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+}
+
+/* Enhanced body text styling */
+p {
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  color: var(--ifm-color-gray-800);
+}
+
+[data-theme='dark'] p {
+  color: var(--ifm-color-gray-300);
+}
+
+/* Enhanced content container styling with improved spacing */
+.main-container {
+  padding: 2rem 1rem;
+}
+
+/* Improved content section spacing */
+.content-blog-wrapper {
+  padding: 2rem 1rem;
+}
+
+/* Better spacing for article content */
+article {
+  max-width: 80ch;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Enhanced spacing for code blocks */
+.code-block {
+  margin: 1.5rem 0;
+}
+
+/* Better list styling */
+ul, ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+/* Update code block styling with modern syntax highlighting theme */
+/* Code block container styling */
+.prism-code {
+  border-radius: 8px;
+  padding: 1rem 1.25rem !important;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  background-color: var(--ifm-color-gray-100) !important;
+  border: 1px solid var(--ifm-color-gray-200);
+  margin: 1.5rem 0;
+  box-shadow: inset 0 0 0 1px var(--ifm-color-gray-200);
+}
+
+[data-theme='dark'] .prism-code {
+  background-color: var(--ifm-color-gray-900) !important;
+  border-color: var(--ifm-color-gray-700);
+  box-shadow: inset 0 0 0 1px var(--ifm-color-gray-700);
+}
+
+/* Inline code styling */
+code {
+  background-color: var(--ifm-color-gray-100);
+  color: var(--ifm-color-danger);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  border: 1px solid var(--ifm-color-gray-200);
+}
+
+[data-theme='dark'] code {
+  background-color: var(--ifm-color-gray-800);
+  border-color: var(--ifm-color-gray-600);
+  color: var(--ifm-color-warning);
+}
+
+/* Code block specific styling */
+div.code-block {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+/* Copy button styling for code blocks */
+.theme-code-block {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Language specific code block styling */
+.code-block-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  background-color: var(--ifm-color-gray-200);
+  border-bottom: 1px solid var(--ifm-color-gray-300);
+  color: var(--ifm-color-gray-700);
+}
+
+[data-theme='dark'] .code-block-title {
+  background-color: var(--ifm-color-gray-800);
+  border-bottom-color: var(--ifm-color-gray-600);
+  color: var(--ifm-color-gray-300);
+}
+
+/* Improve table styling with better borders and spacing */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-gray-300);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme='dark'] table {
+  border-color: var(--ifm-color-gray-600);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Table header styling */
+th {
+  background-color: var(--ifm-color-gray-100);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--ifm-color-gray-800);
+  border-bottom: 2px solid var(--ifm-color-gray-300);
+}
+
+[data-theme='dark'] th {
+  background-color: var(--ifm-color-gray-800);
+  color: var(--ifm-color-gray-200);
+  border-bottom-color: var(--ifm-color-gray-600);
+}
+
+/* Table cell styling */
+td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--ifm-color-gray-200);
+  vertical-align: top;
+}
+
+[data-theme='dark'] td {
+  border-bottom-color: var(--ifm-color-gray-700);
+}
+
+/* Last row styling */
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Alternate row styling */
+tbody tr:nth-child(even) {
+  background-color: var(--ifm-color-gray-50);
+}
+
+[data-theme='dark'] tbody tr:nth-child(even) {
+  background-color: var(--ifm-color-gray-900);
+}
+
+/* Responsive table */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.85rem;
+  }
+
+  th, td {
+    padding: 0.5rem;
+  }
+}
+
+/* Enhance button and link styling with modern design */
+/* Button styling */
+button,
+.button,
+.btn {
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover,
+.button:hover,
+.btn:hover {
+  background-color: var(--ifm-color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:active,
+.button:active,
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Primary button variant */
+.button--primary {
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+/* Secondary button variant */
+.button--secondary {
+  background-color: var(--ifm-color-gray-200);
+  color: var(--ifm-color-gray-800);
+}
+
+[data-theme='dark'] .button--secondary {
+  background-color: var(--ifm-color-gray-700);
+  color: var(--ifm-color-gray-200);
+}
+
+/* Success button variant */
+.button--success {
+  background-color: var(--ifm-color-success);
+  color: white;
+}
+
+/* Danger button variant */
+.button--danger {
+  background-color: var(--ifm-color-danger);
+  color: white;
+}
+
+/* Link styling */
+a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--ifm-color-primary-darker);
+  text-decoration: underline;
+}
+
+/* Underline effect for links */
+a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -1px;
+  left: 0;
+  background-color: var(--ifm-color-primary);
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Reset for links that shouldn't have this effect */
+.navbar__link::after,
+.menu__link::after,
+.pagination-nav__link::after {
+  display: none;
+}
+
+/* Enhanced link styling for different contexts */
+a code {
+  color: var(--ifm-color-danger);
+  transition: background-color 0.2s ease-in-out;
+}
+
+a code:hover {
+  background-color: var(--ifm-color-gray-100);
+  border-radius: 3px;
+  padding: 0.1rem 0.3rem;
+}
+
+[data-theme='dark'] a code:hover {
+  background-color: var(--ifm-color-gray-800);
+}
+
+/* Footer styling */
+.footer {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+  color: white;
+}
+
+.footer__title {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.footer__items {
+  margin-bottom: 0;
+}
+
+.footer__items a {
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.25rem 0;
+  display: block;
+}
+
+.footer__items a:hover {
+  color: white;
+  text-decoration: none;
+  transform: translateX(5px);
+}
+
+.footer__items a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.footer__items a:hover::after {
+  width: 100%;
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer__copyright {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+/* Header title styling */
+.navbar__title {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+/* Navigation links in navbar */
+.navbar__item {
+  font-size: 1.2rem !important;
+}
+
+/* Navbar logo styling */
+.navbar__logo {
+  height: 2rem;
+  width: 2rem;
+  margin-right: 0.5rem;
+}
+
+/* Dark theme specific footer styling */
+[data-theme='dark'] .footer {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%) !important;
+  color: white;
+}
+
+[data-theme='dark'] .footer__items a {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme='dark'] .footer__items a:hover {
+  color: white;
+}
+
+/* Footer link hover effects */
+.footer__link-item:hover,
+.footer__item:hover {
+  color: white !important;
+}
+
+/* Footer responsive adjustments */
+@media (max-width: 768px) {
+  .footer__col {
+    margin-bottom: 2rem;
+  }
+
+  .footer__title {
+    font-size: 1rem;
+  }
+
+  .footer__items a {
+    font-size: 0.9rem;
+  }
+}
