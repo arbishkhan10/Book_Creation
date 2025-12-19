@@ -1,0 +1,146 @@
+# Documentation API Contract: Isaac Robot Brain Module
+
+## Overview
+This contract defines the structure and endpoints for the Isaac Robot Brain module content API. This would be used if the documentation content were served programmatically.
+
+## Base URL
+```
+https://docs.example.com/api/v1
+```
+
+## Authentication
+No authentication required for public documentation content.
+
+## Content Endpoints
+
+### GET /modules/isaac-robot-brain
+Retrieve the main module information.
+
+**Response (200 OK):**
+```json
+{
+  "id": "isaac-robot-brain",
+  "title": "Module 3: The AI-Robot Brain (NVIDIA Isaac)",
+  "description": "Comprehensive guide to NVIDIA Isaac ecosystem for humanoid robots",
+  "target_audience": "AI and robotics students",
+  "prerequisites": [
+    "Basic robotics knowledge",
+    "ROS/ROS2 familiarity"
+  ],
+  "duration_hours": 18,
+  "chapters": [
+    {
+      "id": "chapter-1",
+      "title": "NVIDIA Isaac Sim for photorealistic simulation",
+      "order": 1
+    },
+    {
+      "id": "chapter-2",
+      "title": "Isaac ROS for VSLAM and navigation",
+      "order": 2
+    },
+    {
+      "id": "chapter-3",
+      "title": "Nav2 path planning for humanoid robots",
+      "order": 3
+    }
+  ]
+}
+```
+
+### GET /modules/isaac-robot-brain/chapters/{chapterId}
+Retrieve a specific chapter's content.
+
+**Path Parameters:**
+- `chapterId`: The ID of the chapter (chapter-1, chapter-2, or chapter-3)
+
+**Response (200 OK):**
+```json
+{
+  "id": "chapter-1",
+  "title": "NVIDIA Isaac Sim for photorealistic simulation",
+  "module_id": "isaac-robot-brain",
+  "order": 1,
+  "learning_objectives": [
+    "Understand Isaac Sim fundamentals",
+    "Set up simulation environment",
+    "Generate synthetic training data"
+  ],
+  "duration_hours": 4,
+  "sections": [
+    {
+      "id": "section-1",
+      "title": "Isaac Sim Overview",
+      "type": "theory",
+      "content": "Markdown content for the section..."
+    },
+    {
+      "id": "section-2",
+      "title": "Environment Setup",
+      "type": "practical",
+      "content": "Markdown content for the section..."
+    }
+  ],
+  "exercises": [
+    {
+      "id": "exercise-1",
+      "title": "Basic Simulation Setup",
+      "difficulty": "beginner",
+      "estimated_time_minutes": 45,
+      "description": "Set up a basic Isaac Sim environment"
+    }
+  ]
+}
+```
+
+### GET /modules/isaac-robot-brain/exercises/{exerciseId}
+Retrieve a specific exercise with instructions and expected outcomes.
+
+**Path Parameters:**
+- `exerciseId`: The ID of the exercise
+
+**Response (200 OK):**
+```json
+{
+  "id": "exercise-1",
+  "chapter_id": "chapter-1",
+  "title": "Basic Simulation Setup",
+  "description": "Set up a basic Isaac Sim environment",
+  "difficulty": "beginner",
+  "estimated_time_minutes": 45,
+  "prerequisites": [
+    "Isaac Sim installed",
+    "Compatible GPU"
+  ],
+  "steps": [
+    "Launch Isaac Sim",
+    "Create a new simulation scene",
+    "Add a robot model",
+    "Configure sensors",
+    "Run the simulation"
+  ],
+  "expected_outcome": "Successfully run a basic simulation with a robot model",
+  "resources": [
+    "Isaac Sim documentation",
+    "Robot model files"
+  ]
+}
+```
+
+## Error Responses
+
+### 404 Not Found
+```json
+{
+  "error": "Content not found",
+  "message": "The requested module, chapter, or exercise does not exist"
+}
+```
+
+### 500 Internal Server Error
+```json
+{
+  "error": "Internal server error",
+  "message": "An unexpected error occurred while retrieving content"
+}
+```

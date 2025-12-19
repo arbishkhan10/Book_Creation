@@ -1,0 +1,12 @@
+# Placeholder API Contract for Documentation Project
+# This file exists to satisfy the project structure template
+# Since this is a documentation project, there are no actual APIs
+
+openapi: 3.0.0
+info:
+  title: VLA Module Documentation API
+  description: Documentation endpoints for the Vision-Language-Action educational module
+  version: 1.0.0
+
+paths: {}
+components: {}
