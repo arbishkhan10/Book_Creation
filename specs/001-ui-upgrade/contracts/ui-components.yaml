@@ -1,0 +1,89 @@
+# UI Component Contracts: My_Book Docusaurus Site
+
+## Overview
+This document defines the interface contracts for UI components in the My_Book Docusaurus site. These contracts ensure consistency between the custom UI elements and the Docusaurus framework.
+
+## Theme Configuration Contract
+
+### Color Variables Contract
+```
+CSS Variable Name: --ifm-color-primary
+Expected Value: Hex color code
+Default Behavior: Used for primary buttons, links, and accents
+Custom Value: #25c2a0 (modern teal-green)
+
+CSS Variable Name: --ifm-color-background
+Expected Value: Hex color code
+Default Behavior: Used for page background
+Custom Value: #ffffff (clean white)
+
+CSS Variable Name: --ifm-heading-color
+Expected Value: Hex color code
+Default Behavior: Used for all heading elements
+Custom Value: #242526 (dark gray for readability)
+```
+
+### Typography Contract
+```
+CSS Variable: --ifm-font-family-base
+Expected Value: Font family string
+Default Behavior: Applied to body text
+Custom Value: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif
+
+CSS Variable: --ifm-h1-font-size
+Expected Value: Font size value
+Default Behavior: Applied to h1 elements
+Custom Value: 3rem for desktop, 2.5rem for mobile
+```
+
+## Component Interface Contract
+
+### Navigation Component
+- **Input**: Navigation configuration from docusaurus.config.js
+- **Output**: Responsive navigation bar with mobile menu
+- **Behavior**: Must collapse to hamburger menu on mobile
+- **Accessibility**: Must support keyboard navigation
+
+### Search Component
+- **Input**: Search index from Docusaurus
+- **Output**: Search results with highlighting
+- **Behavior**: Must work with custom styling
+- **Performance**: Must return results in <200ms
+
+### Code Block Component
+- **Input**: Code content with language specification
+- **Output**: Syntax-highlighted code block with copy button
+- **Behavior**: Must maintain custom theme colors
+- **Accessibility**: Must support screen readers
+
+## Responsive Design Contract
+
+### Breakpoints
+```
+Mobile: max-width: 768px
+Tablet: 769px - 1024px
+Desktop: min-width: 1025px
+```
+
+### Component Behavior at Breakpoints
+- Navigation must convert to hamburger menu on mobile
+- Sidebar must become collapsible on mobile
+- Content width must adjust appropriately
+- Font sizes may scale down on smaller screens
+
+## Accessibility Contract
+
+### Color Contrast Requirements
+- All text must have at least 4.5:1 contrast ratio against background
+- Large text (18pt+) must have at least 3:1 contrast ratio
+- UI components must have at least 3:1 contrast ratio against adjacent colors
+
+### Keyboard Navigation
+- All interactive elements must be reachable via Tab key
+- Active elements must have visible focus indicators
+- Navigation menus must be operable via keyboard
+
+### Screen Reader Support
+- All images must have appropriate alt text
+- Interactive elements must have ARIA labels when needed
+- Page structure must follow semantic HTML hierarchy

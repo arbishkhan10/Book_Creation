@@ -1,4 +1,4 @@
-// 
+//
 import { themes as prismThemes } from 'prism-react-renderer';
 
 /** {import('@docusaurus/types').Config} */
@@ -9,7 +9,7 @@ const config = {
 
   // GitHub Pages URL
   url: 'https://arbishkhan10.github.io',
-  baseUrl: '/My-Book/', // GitHub repo name
+  baseUrl: '/', // GitHub repo name
 
   organizationName: 'arbishkhan10',
   projectName: 'My-Book',
@@ -47,12 +47,31 @@ const config = {
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
       title: 'Humanoid Robotics Book',
-      logo: { alt: 'Logo', src: 'img/logo.svg' },
+      logo: {
+        alt: 'Logo',
+        src: 'img/logo.svg',
+        srcDark: 'img/logo.svg', // Add dark mode logo if available
+      },
       items: [
         { type: 'docSidebar', sidebarId: 'tutorialSidebar', position: 'left', label: 'Module' },
         { to: '/blog', label: 'Blog', position: 'left' },
         { href: 'https://github.com/arbishkhan10/My-Book', label: 'GitHub', position: 'right' },
       ],
+      style: 'primary', // Use primary color for navbar
+    },
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
+    prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+      additionalLanguages: ['bash', 'json', 'python', 'typescript', 'docker', 'yaml'], // Add more languages
+    },
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 5,
     },
     footer: {
       style: 'dark',
@@ -79,7 +98,6 @@ const config = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Arbish Khan. Built with Docusaurus.`,
     },
-    prism: { theme: prismThemes.github, darkTheme: prismThemes.dracula },
   },
 };
 
